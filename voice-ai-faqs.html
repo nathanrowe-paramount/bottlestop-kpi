@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paramount Liquor Customer Service FAQs</title>
+<style>
+:root {
+  --bg: #f3f5f7;
+  --card: #ffffff;
+  --text: #1b2430;
+  --muted: #5b6675;
+  --line: #dbe2ea;
+  --brand: #17324d;
+  --brand-2: #23527c;
+  --accent: #eef5fb;
+  --chip: #e7f1fb;
+  --shadow: 0 8px 30px rgba(16, 24, 40, 0.08);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+a { color: var(--brand-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 18px 64px;
+}
+.hero {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+  color: white;
+  border-radius: 20px;
+  padding: 38px 28px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+.hero p {
+  margin: 0;
+  max-width: 760px;
+  color: rgba(255,255,255,0.92);
+  font-size: 1.05rem;
+}
+.topbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0 26px;
+  align-items: center;
+}
+.search {
+  flex: 1 1 320px;
+  position: relative;
+}
+.search input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: white;
+  font-size: 1rem;
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+.meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 22px;
+}
+.sidebar {
+  position: sticky;
+  top: 18px;
+  align-self: start;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+}
+.sidebar h2 {
+  font-size: 0.95rem;
+  margin: 0 0 12px;
+  color: var(--brand);
+}
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar li + li { margin-top: 8px; }
+.sidebar a {
+  display: block;
+  padding: 9px 10px;
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+.sidebar a:hover {
+  background: var(--accent);
+  text-decoration: none;
+}
+.content {
+  min-width: 0;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+}
+.card h2 {
+  margin: 0 0 12px;
+  color: var(--brand);
+  font-size: 1.32rem;
+  line-height: 1.3;
+}
+.card h3 {
+  margin: 18px 0 8px;
+  color: var(--brand-2);
+  font-size: 1rem;
+}
+.card p { margin: 0 0 12px; }
+.card p:last-child { margin-bottom: 0; }
+.card ul {
+  margin: 8px 0 14px 20px;
+  padding: 0;
+}
+.card li { margin: 5px 0; }
+.badge {
+  display: inline-block;
+  background: var(--chip);
+  color: var(--brand);
+  font-size: 0.78rem;
+  padding: 5px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.hidden { display: none !important; }
+.footer {
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar {
+    position: static;
+    max-height: none;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <h1>Paramount Liquor Customer Service FAQs</h1>
+    <p>A clean, shareable view of the approved customer-facing Voice AI FAQ content.</p>
+  </header>
+
+  <div class="topbar">
+    <div class="search"><input id="search" type="search" placeholder="Search this page"></div>
+    <div class="meta" id="result-count">34 entries</div>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>On this page</h2>
+      <ul><li><a href="#how-can-i-see-my-discounts-on-your-website">How can I see my discounts on your website?</a></li><li><a href="#how-can-i-organise-an-empty-keg-collection">How can I organise an empty keg collection?</a></li><li><a href="#what-if-the-item-i-want-is-out-of-stock">What if the item I want is out of stock?</a></li><li><a href="#what-delivery-days-are-available-for-my-account">What delivery days are available for my account?</a></li><li><a href="#why-have-i-been-charged-a-minimum-delivery-top-up-charge">Why have I been charged a Minimum Delivery Top-Up Charge?</a></li><li><a href="#does-case-disc-mean-the-discount-is-already-applied-to-the-case-price-or-is-it-additional">Does Case Disc mean the discount is already applied to the case price, or is it additional?</a></li><li><a href="#how-do-i-become-a-paramount-liquor-customer">How do I become a Paramount Liquor customer?</a></li><li><a href="#will-my-account-credit-be-applied-to-my-order-at-checkout">Will my account credit be applied to my order at checkout?</a></li><li><a href="#can-i-collect-my-order-from-the-warehouse">Can I collect my order from the warehouse?</a></li><li><a href="#can-i-change-the-delivery-day-for-my-order">Can I change the delivery day for my order?</a></li><li><a href="#how-do-i-reset-my-password">How do I reset my password?</a></li><li><a href="#how-do-i-change-the-email-address-linked-to-my-account">How do I change the email address linked to my account?</a></li><li><a href="#how-do-i-change-the-email-address-my-invoices-are-sent-to">How do I change the email address my invoices are sent to?</a></li><li><a href="#why-have-i-been-charged-again-for-a-fix-up-order">Why have I been charged again for a fix up order?</a></li><li><a href="#can-i-request-a-specific-delivery-time-for-my-order">Can I request a specific delivery time for my order?</a></li><li><a href="#how-do-i-apply-for-payment-terms">How do I apply for payment terms?</a></li><li><a href="#can-i-get-my-order-couriered-the-same-day">Can I get my order couriered the same day?</a></li><li><a href="#what-should-i-do-if-the-login-page-shows-not-found">What should I do if the login page shows not found?</a></li><li><a href="#what-should-i-do-if-i-get-a-504-gateway-timeout-error-when-placing-an-order">What should I do if I get a 504 Gateway Timeout error when placing an order?</a></li><li><a href="#how-can-i-see-your-prices">How can I see your prices?</a></li><li><a href="#how-do-i-avoid-a-minimum-delivery-top-up-charge">How do I avoid a Minimum Delivery Top-Up Charge?</a></li><li><a href="#are-you-hiring">Are you hiring?</a></li><li><a href="#how-do-i-add-another-user-to-my-account-so-they-can-place-orders">How do I add another user to my account so they can place orders?</a></li><li><a href="#can-i-return-stock-to-paramount-liquor">Can I return stock to Paramount Liquor?</a></li><li><a href="#do-i-need-an-account-to-order-or-can-i-just-pay-by-card">Do I need an account to order, or can I just pay by card?</a></li><li><a href="#can-i-have-more-than-one-delivery-address-on-the-same-account">Can I have more than one delivery address on the same account?</a></li><li><a href="#can-i-cancel-my-order">Can I cancel my order?</a></li><li><a href="#can-i-get-a-discount-on-an-alternative-product-if-my-usual-item-is-out-of-stock">Can I get a discount on an alternative product if my usual item is out of stock?</a></li><li><a href="#how-do-i-check-my-discounts-or-ask-about-supplier-contract-pricing">How do I check my discounts or ask about supplier contract pricing?</a></li><li><a href="#how-do-i-redeem-my-evolution-rewards-points">How do I redeem my Evolution Rewards points?</a></li><li><a href="#why-didn-t-an-item-i-ordered-arrive-even-though-it-showed-as-in-stock">Why didn’t an item I ordered arrive, even though it showed as in stock?</a></li><li><a href="#can-i-get-next-day-delivery-if-i-place-my-order-today">Can I get next-day delivery if I place my order today?</a></li><li><a href="#how-do-i-become-a-paramount-liquor-supplier">How do I become a Paramount Liquor supplier?</a></li><li><a href="#can-i-track-my-order">Can I track my order?</a></li></ul>
+    </aside>
+    <main class="content">
+      <section class="card entry-card" id="how-can-i-see-my-discounts-on-your-website">
+<div class="badge">Customer FAQ</div>
+<h2>How can I see my discounts on your website?</h2>
+<p>Your discounts appear in the Case Disc field next to each product. When you click into a product, the case price already includes the discount, and the unit price does too if the item is available to purchase individually. What you see is the final price you will be charged on your invoice.</p>
+</section><section class="card entry-card" id="how-can-i-organise-an-empty-keg-collection">
+<div class="badge">Customer FAQ</div>
+<h2>How can I organise an empty keg collection?</h2>
+<p>You can organise this during checkout. Just select Pick up empty kegs on the order screen, enter the quantity, and the driver will collect them with your next delivery.</p>
+</section><section class="card entry-card" id="what-if-the-item-i-want-is-out-of-stock">
+<div class="badge">Customer FAQ</div>
+<h2>What if the item I want is out of stock?</h2>
+<p>If an item is out of stock, you can still add it to your order and it will move into the Backorder section of your cart. If you turn on Backorder Notifications in My Account, you can receive an email or SMS when the item comes back into stock.</p>
+</section><section class="card entry-card" id="what-delivery-days-are-available-for-my-account">
+<div class="badge">Customer FAQ</div>
+<h2>What delivery days are available for my account?</h2>
+<p>Your available delivery days appear during checkout on the website. If you have set up a preferred consolidation day on your account, that day will usually be selected automatically. If not, the available delivery options for your area will be shown for you to choose from.</p>
+</section><section class="card entry-card" id="why-have-i-been-charged-a-minimum-delivery-top-up-charge">
+<div class="badge">Customer FAQ</div>
+<h2>Why have I been charged a Minimum Delivery Top-Up Charge?</h2>
+<p>A Minimum Delivery Top-Up Charge applies when the calculated freight on your order is less than the minimum delivery charge for your area. Your calculated freight is based on what you have ordered, such as the number of cases or kegs in the order. For metro deliveries, the minimum charge is usually $15, but some regional or rural areas may have a higher minimum charge. For example, if the calculated freight on your order is $10 and the minimum delivery charge for your area is $15, a Minimum Delivery Top-Up Charge of $5 is added to bridge the gap. Platinum and Gold loyalty customers are not charged a Minimum Delivery Top-Up Charge. If your order meets the required threshold, or your account is on Platinum or Gold loyalty status, this charge does not apply.</p>
+</section><section class="card entry-card" id="does-case-disc-mean-the-discount-is-already-applied-to-the-case-price-or-is-it-additional">
+<div class="badge">Customer FAQ</div>
+<h2>Does Case Disc mean the discount is already applied to the case price, or is it additional?</h2>
+<p>The Case Disc is already included in the case price shown on the website. There is no extra discount added later at checkout. What you see is the final discounted case price that you will be charged on your invoice.</p>
+</section><section class="card entry-card" id="how-do-i-become-a-paramount-liquor-customer">
+<div class="badge">Customer FAQ</div>
+<h2>How do I become a Paramount Liquor customer?</h2>
+<p>To become a Paramount Liquor customer, go to paramountliquor.com.au and click Sign Up. Under the Become a Customer section, click Join Now. First, you will complete your contact details and verify your email address and mobile number. Once those details are verified, you will complete your business and venue details, set your password, and then be taken into your account dashboard to continue onboarding.</p>
+</section><section class="card entry-card" id="will-my-account-credit-be-applied-to-my-order-at-checkout">
+<div class="badge">Customer FAQ</div>
+<h2>Will my account credit be applied to my order at checkout?</h2>
+<p>If you have a prepaid account, any available credit on your account will usually be applied automatically at checkout. If you have a terms account, credits are not applied automatically and need to be allocated by our Accounts Receivable team. If you would like, I can arrange for a request to be sent to Accounts Receivable to have the credit applied to your order.</p>
+</section><section class="card entry-card" id="can-i-collect-my-order-from-the-warehouse">
+<div class="badge">Customer FAQ</div>
+<h2>Can I collect my order from the warehouse?</h2>
+<p>Yes, warehouse collection can be arranged. If you have already placed your order, I can arrange for a request to be sent to our Customer Experience Team with your order confirmation number and customer details. They will review the order, confirm whether warehouse pickup can be arranged, and contact you once they have investigated it. Warehouse collection times are generally between 10 am and 2 pm, and you should wait for confirmation before attending. Can I please get your order confirmation number so I can send this to our Customer Experience Team for urgent action?</p>
+</section><section class="card entry-card" id="can-i-change-the-delivery-day-for-my-order">
+<div class="badge">Customer FAQ</div>
+<h2>Can I change the delivery day for my order?</h2>
+<p>Yes, if you have already placed your order, I can arrange for a request to be sent to our Customer Experience Team to review a delivery day change. They will check the delivery days available for your area and confirm whether the change can be made. Can I please get your order confirmation number so I can send this through for action?</p>
+</section><section class="card entry-card" id="how-do-i-reset-my-password">
+<div class="badge">Customer FAQ</div>
+<h2>How do I reset my password?</h2>
+<p>Go to the Paramount Liquor login page and click Forgot Password. Then enter your email address and follow the instructions in the password reset email to set a new password. If you do not receive the email, please check your Junk or Spam folder first.</p>
+</section><section class="card entry-card" id="how-do-i-change-the-email-address-linked-to-my-account">
+<div class="badge">Customer FAQ</div>
+<h2>How do I change the email address linked to my account?</h2>
+<p>For security reasons, user email addresses are not renamed. Instead, a new user profile needs to be created with the new email address, and the old one can then be removed. If you are the Master User on the account, you can do this in Account Settings under Users by selecting Add New User and setting the correct permissions. If you are not the Master User on the account, I can submit a request to our support team and gather the details they need to contact you back and arrange the update.</p>
+</section><section class="card entry-card" id="how-do-i-change-the-email-address-my-invoices-are-sent-to">
+<div class="badge">Customer FAQ</div>
+<h2>How do I change the email address my invoices are sent to?</h2>
+<p>To change the email address your invoices are sent to, I can arrange for a request to be sent to our Accounts Receivable team. They will contact you to update the billing contact details on your account. I’m just going to gather a few details to populate that request.</p>
+</section><section class="card entry-card" id="why-have-i-been-charged-again-for-a-fix-up-order">
+<div class="badge">Customer FAQ</div>
+<h2>Why have I been charged again for a fix up order?</h2>
+<p>If an item on your original order was damaged or missing, a credit is issued against the original invoice for that item. If replacement stock is then sent out, it is processed on a new fix up order and charged on a separate invoice. That is why you may see another charge, even though the original invoice has already been credited for the damaged or missing item.</p>
+</section><section class="card entry-card" id="can-i-request-a-specific-delivery-time-for-my-order">
+<div class="badge">Customer FAQ</div>
+<h2>Can I request a specific delivery time for my order?</h2>
+<p>You can request a delivery time window, but it is a guide only and cannot be guaranteed. A minimum four hour service window is required. If you would like, I can arrange for a request to be sent to our Customer Experience Team to review this for your account. If you need deliveries left without someone onsite, you can also manage Authority to Leave settings through Account Settings.</p>
+</section><section class="card entry-card" id="how-do-i-apply-for-payment-terms">
+<div class="badge">Customer FAQ</div>
+<h2>How do I apply for payment terms?</h2>
+<p>If you are a new customer, you can request payment terms as part of the online account application. If you are an existing customer, I can arrange for a request to be sent to our Accounts team to review your account for payment terms. I’m just going to gather a few details to populate that request.</p>
+</section><section class="card entry-card" id="can-i-get-my-order-couriered-the-same-day">
+<div class="badge">Customer FAQ</div>
+<h2>Can I get my order couriered the same day?</h2>
+<p>Same-day courier delivery may be possible depending on your location, stock availability, the size of the order, and the time the request is made. Orders need to be in the system first so the team can review whether the items are suitable for same-day courier delivery. If you would like, I can arrange for an urgent request to be sent to our Customer Experience Team to review this for you.</p>
+</section><section class="card entry-card" id="what-should-i-do-if-the-login-page-shows-not-found">
+<div class="badge">Customer FAQ</div>
+<h2>What should I do if the login page shows not found?</h2>
+<p>If the login page shows not found, first try refreshing the page or opening it in Google Chrome. If that does not work, clear your browser cache and cookies and try again. If that still does not fix the issue, I can arrange for a request to be sent to our support team to investigate.</p>
+</section><section class="card entry-card" id="what-should-i-do-if-i-get-a-504-gateway-timeout-error-when-placing-an-order">
+<div class="badge">Customer FAQ</div>
+<h2>What should I do if I get a 504 Gateway Timeout error when placing an order?</h2>
+<p>If you receive a 504 Gateway Timeout error at checkout, first check whether your cart is now empty, as that can indicate the order has gone through. You can also refresh the page and check your recent orders or order template to confirm whether the order was submitted before trying again. If you are still unsure, I can arrange for a request to be sent to our support team to investigate.</p>
+</section><section class="card entry-card" id="how-can-i-see-your-prices">
+<div class="badge">Customer FAQ</div>
+<h2>How can I see your prices?</h2>
+<p>To see Paramount Liquor pricing, you need to have a customer account and be logged in to the website. We only supply licensed venues, and pricing can vary depending on the type of customer and the supplier discounts available to that account.</p>
+</section><section class="card entry-card" id="how-do-i-avoid-a-minimum-delivery-top-up-charge">
+<div class="badge">Customer FAQ</div>
+<h2>How do I avoid a Minimum Delivery Top-Up Charge?</h2>
+<p>A Minimum Delivery Top-Up Charge applies when the calculated freight on your order is less than the minimum delivery charge for your area. To avoid that charge, your order needs to meet the required freight threshold for your area. Platinum and Gold loyalty customers are not charged a Minimum Delivery Top-Up Charge.</p>
+</section><section class="card entry-card" id="are-you-hiring">
+<div class="badge">Customer FAQ</div>
+<h2>Are you hiring?</h2>
+<p>If you would like to apply for a role with Paramount Liquor, please send your CV to recruitment@paramountliquor.com.au.</p>
+</section><section class="card entry-card" id="how-do-i-add-another-user-to-my-account-so-they-can-place-orders">
+<div class="badge">Customer FAQ</div>
+<h2>How do I add another user to my account so they can place orders?</h2>
+<p>If you are the Master User on the account, you can add another user in Account Settings under Users by selecting Add New User and assigning the correct permissions. If you are not the Master User, I can submit a request to our support team and gather the details they need to contact you back and arrange the update.</p>
+</section><section class="card entry-card" id="can-i-return-stock-to-paramount-liquor">
+<div class="badge">Customer FAQ</div>
+<h2>Can I return stock to Paramount Liquor?</h2>
+<p>Paramount Liquor can assist with returns in certain circumstances, provided the stock meets our return conditions. Items must generally be unopened, in saleable condition, and suitable for resale. A 5 percent return fee applies. If you would like, I can arrange for a request to be sent to our team to review the stock and contact you back.</p>
+</section><section class="card entry-card" id="do-i-need-an-account-to-order-or-can-i-just-pay-by-card">
+<div class="badge">Customer FAQ</div>
+<h2>Do I need an account to order, or can I just pay by card?</h2>
+<p>You need to create a Paramount Liquor customer account to place an order. New customers are set up as prepaid, so you can order and pay by card once your account is active. If you want to apply for credit terms later, you can do that separately.</p>
+</section><section class="card entry-card" id="can-i-have-more-than-one-delivery-address-on-the-same-account">
+<div class="badge">Customer FAQ</div>
+<h2>Can I have more than one delivery address on the same account?</h2>
+<p>We can only have one delivery address per licensed customer account, which must match the licensed premises. If you have additional licensed outlets, we can set those up as separate accounts. If you are a festival or events customer with changing licensed locations, we can assist through our Festivals and Events team, who can help create the required addresses.</p>
+</section><section class="card entry-card" id="can-i-cancel-my-order">
+<div class="badge">Customer FAQ</div>
+<h2>Can I cancel my order?</h2>
+<p>Yes, you can request to cancel the order. If the order has not yet been picked or despatched, it can usually be cancelled at no charge. If the order has already been picked or despatched, a cancellation fee will apply. If you would like, I can arrange for a request to be sent to our Customer Experience Team to review this for you.</p>
+</section><section class="card entry-card" id="can-i-get-a-discount-on-an-alternative-product-if-my-usual-item-is-out-of-stock">
+<div class="badge">Customer FAQ</div>
+<h2>Can I get a discount on an alternative product if my usual item is out of stock?</h2>
+<p>Yes, we may be able to load a discount on an alternative product for you while your usual item is out of stock. If you would like, I can arrange for a request to be sent to your sales person to review this and contact you back.</p>
+</section><section class="card entry-card" id="how-do-i-check-my-discounts-or-ask-about-supplier-contract-pricing">
+<div class="badge">Customer FAQ</div>
+<h2>How do I check my discounts or ask about supplier contract pricing?</h2>
+<p>If you want to check your current discounts online, you can look at the product listing and refer to the Case Disc field, which shows the discount currently applied to that item. If you want to ask about supplier contract pricing or account-specific discount arrangements, the best option is to speak with your designated sales person. If you would like, I can arrange for a request to be sent to them.</p>
+</section><section class="card entry-card" id="how-do-i-redeem-my-evolution-rewards-points">
+<div class="badge">Customer FAQ</div>
+<h2>How do I redeem my Evolution Rewards points?</h2>
+<p>You can redeem your Evolution Rewards points by logging in to your Paramount Liquor account, clicking the Evolution Rewards icon in the menu, and then placing your redemption order through the normal order flow. Status credits cannot be redeemed.</p>
+</section><section class="card entry-card" id="why-didn-t-an-item-i-ordered-arrive-even-though-it-showed-as-in-stock">
+<div class="badge">Customer FAQ</div>
+<h2>Why didn’t an item I ordered arrive, even though it showed as in stock?</h2>
+<p>This usually means there was a stock discrepancy in our system and we believed we had more stock available than we actually did. If an item on your order becomes unavailable, you should receive an email notification on the morning of your delivery advising that it is out of stock. If you would like to order a replacement product, you can do that online, or I can arrange for a request to be sent to your sales representative to review an alternative product and any available discount.</p>
+</section><section class="card entry-card" id="can-i-get-next-day-delivery-if-i-place-my-order-today">
+<div class="badge">Customer FAQ</div>
+<h2>Can I get next-day delivery if I place my order today?</h2>
+<p>It depends on your delivery location and the regular delivery days for your area. If you are in a metro area that receives next-day delivery and you place your order before the relevant cut-off time, then yes, your order may be delivered the next day. If you need an urgent delivery request reviewed, I can arrange for a request to be sent to your sales representative.</p>
+</section><section class="card entry-card" id="how-do-i-become-a-paramount-liquor-supplier">
+<div class="badge">Customer FAQ</div>
+<h2>How do I become a Paramount Liquor supplier?</h2>
+<p>To become a Paramount Liquor supplier, go to our website, open the menu, click Sign Up, and under Become a Supplier select Get Started. This will begin the supplier onboarding process.</p>
+</section><section class="card entry-card" id="can-i-track-my-order">
+<div class="badge">Customer FAQ</div>
+<h2>Can I track my order?</h2>
+<p>Yes, you can track your order by logging in to your Paramount Liquor account, going to Orders, and clicking the tracking link for the relevant order.</p>
+</section>
+      <div class="footer">Generated from the latest approved markdown source.</div>
+    </main>
+  </div>
+</div>
+<script>
+const input = document.getElementById('search');
+const cards = [...document.querySelectorAll('.entry-card')];
+const count = document.getElementById('result-count');
+input.addEventListener('input', () => {
+  const q = input.value.trim().toLowerCase();
+  let visible = 0;
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    const show = !q || text.includes(q);
+    card.classList.toggle('hidden', !show);
+    if (show) visible += 1;
+  });
+  count.textContent = q ? `${visible} result${visible === 1 ? '' : 's'}` : `${cards.length} entries`;
+});
+</script>
+</body>
+</html>
