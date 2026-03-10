@@ -40,13 +40,6 @@ accounts@paramountliquor.com.au
 Trigger purpose:
 Request manual allocation of available account credit to the customer’s order.
 
-Suggested data to capture:
-- Customer name
-- Account name
-- Order number
-- Credit amount to be applied, if known
-- Contact details
-- Any relevant notes from the customer
 
 ## Warehouse collection request
 
@@ -68,13 +61,6 @@ Request urgent review of an existing order for possible warehouse pickup and cus
 Urgency note:
 This should be treated as an urgent internal email flow so the request can be reviewed straight away, especially if the customer is hoping to collect the order the same day.
 
-Suggested data to capture:
-- Customer name
-- Account name
-- Order confirmation number
-- Best callback number
-- Requested collection timing, if mentioned
-- Any relevant notes from the customer
 
 ## Delivery day change request
 
@@ -93,14 +79,6 @@ orders@paramountliquor.com.au
 Trigger purpose:
 Request review of available delivery days for the customer’s area and confirm whether the delivery day can be changed.
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Order confirmation number
-- Requested new delivery day
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Change email address linked to account
 
@@ -122,12 +100,6 @@ Request customer callback and assistance to update account access where the call
 Subject line example:
 Request to change email address linked to account
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Change invoice email address
 
@@ -149,12 +121,6 @@ Request customer callback to update the invoice email address linked to the acco
 Subject line example:
 Request to change invoice email address
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Request delivery time window
 
@@ -176,12 +142,6 @@ Request review of a delivery time window, noting that the requested time is a gu
 Subject line example:
 Request for delivery time window review
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Apply for payment terms
 
@@ -203,12 +163,6 @@ Request review of an existing customer account for payment terms.
 Subject line example:
 Request to review account for payment terms
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Same-day courier request
 
@@ -230,12 +184,6 @@ Request urgent review of stock availability, order size, timing, and courier sui
 Subject line example:
 URGENT: Same-day courier request
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Login page shows not found
 
@@ -257,12 +205,6 @@ Request investigation into login page access issues after the customer has alrea
 Subject line example:
 Request to investigate login page not found issue
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## 504 Gateway Timeout at checkout
 
@@ -284,12 +226,6 @@ Request investigation into possible checkout failure or uncertain order submissi
 Subject line example:
 Request to investigate 504 Gateway Timeout at checkout
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Return stock request
 
@@ -311,12 +247,6 @@ Request review of stock return eligibility, including whether the stock is unope
 Subject line example:
 Request to review stock return
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Multiple delivery addresses or event locations
 
@@ -335,12 +265,6 @@ Request follow-up for customers who need support with changing licensed event lo
 Subject line example:
 Request for festival or event delivery address support
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Cancel order request
 
@@ -362,12 +286,6 @@ Request review of order status to confirm whether cancellation can occur at no c
 Subject line example:
 Request to cancel order
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Alternative product discount request
 
@@ -389,12 +307,6 @@ Request sales follow-up on alternative product options and discount support whil
 Subject line example:
 Request for alternative product discount review
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Supplier contract or account discount enquiry
 
@@ -416,12 +328,6 @@ Request sales follow-up on supplier contract pricing or account-specific discoun
 Subject line example:
 Request for supplier contract pricing review
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Replacement product after stock discrepancy
 
@@ -443,12 +349,6 @@ Request sales follow-up on replacement product options and any available discoun
 Subject line example:
 Request for replacement product and discount review
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
 
 ## Urgent next-day delivery review
 
@@ -470,9 +370,3 @@ Request review of urgent next-day delivery options based on location, regular de
 Subject line example:
 URGENT: Request for next-day delivery review
 
-Suggested data to capture:
-- Full name
-- Mobile number
-- Mobile number confirmation
-- Additional details the customer wants added
-- Venue name, if available from authentication or account context
