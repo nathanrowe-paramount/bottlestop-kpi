@@ -1,7 +1,7 @@
 # Retail Promotions Management Tool — Detailed Product Requirements Document
 
 ## Document purpose
-This PRD translates Nathan’s voice-note briefing into a detailed build specification for Aidan.
+This PRD translates Nathan’s voice-note briefing into a detailed build specification for Aden.
 
 The goal is to define the required workflows, commercial rules, user roles, data entities, UI modules, system behaviours, integrations, and implementation scope for a supplier-facing retail promotions management application inside Paramount’s Adobe environment.
 
@@ -873,7 +873,7 @@ This is important because the workflow impacts pricing, trade investment, and st
 
 ---
 
-## 29. Open questions for Aidan / implementation workshop
+## 29. Open questions for Aden / implementation workshop
 
 These are not blockers to drafting, but should be confirmed during build planning:
 - exact source of supplier permissions inside the current portal
@@ -889,9 +889,9 @@ These are not blockers to drafting, but should be confirmed during build plannin
 
 ---
 
-## 30. Build summary for Aidan
+## 30. Build summary for Aden
 
-Aidan, the core thing to understand is this:
+Aden, the core thing to understand is this:
 
 This app is not just a submission portal.
 It is a structured commercial workflow that should push suppliers toward stronger offers before buyers intervene.
