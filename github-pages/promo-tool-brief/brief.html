@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retail Promotions Management Tool Brief</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; margin: 0; background: #f7f7f5; color: #1f2937; }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 40px 20px 80px; }
+    h1, h2, h3 { color: #111827; }
+    h1 { font-size: 36px; margin-bottom: 8px; }
+    h2 { margin-top: 36px; font-size: 24px; border-top: 1px solid #e5e7eb; padding-top: 24px; }
+    h3 { margin-top: 22px; font-size: 18px; }
+    p, li { font-size: 16px; line-height: 1.6; }
+    .meta { color: #6b7280; margin-bottom: 24px; }
+    .card { background: white; border: 1px solid #e5e7eb; border-radius: 14px; padding: 24px; margin: 20px 0; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+    .tag { display: inline-block; background: #eef2ff; color: #3730a3; padding: 6px 10px; border-radius: 999px; font-size: 12px; margin-right: 8px; }
+    ul { padding-left: 22px; }
+    code { background: #f3f4f6; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="tag">Adobe App Builder</div>
+      <div class="tag">API Mesh</div>
+      <div class="tag">Supplier Portal</div>
+      <div class="tag">Shopfront Integration</div>
+      <h1>Retail Promotions Management Tool</h1>
+      <p class="meta">Compiled for review, 12 March 2026</p>
+      <p>Build a supplier-facing promotions management tool within the Paramount Liquor website and Adobe infrastructure. The app should manage supplier access, promotional slotting, pricing validation, buyer approvals, downstream POS integration, and release workflows.</p>
+    </div>
+
+    <h2>What we are building</h2>
+    <div class="card">
+      <p>A guided commercial workflow, not just a form. Suppliers should log in via the existing Paramount portal, enter the promotions app via SSO, see available slots by category and period, and submit offers that are validated in real time against margin rules, historical usage rules, market pricing, and supplier allocation rules.</p>
+    </div>
+
+    <h2>Core workflow</h2>
+    <div class="card">
+      <ol>
+        <li>Supplier logs into Paramount supplier portal</li>
+        <li>Eligible user enters promotions app via SSO / OAuth</li>
+        <li>User sees a visual promotional slotting board</li>
+        <li>User selects category, slot, product, and pack format</li>
+        <li>User enters scan deal and promotional price</li>
+        <li>System validates margin, market price competitiveness, and availability rules</li>
+        <li>Supplier submits offer with promo assets</li>
+        <li>Buyer reviews and approves or declines</li>
+        <li>Approved promotion pushes to Shopfront</li>
+        <li>Suppliers and internal teams receive notifications</li>
+      </ol>
+    </div>
+
+    <h2>Key requirements</h2>
+    <div class="card">
+      <ul>
+        <li>Permission-based supplier access from existing portal</li>
+        <li>Visual slot board by category and fortnightly period</li>
+        <li>Auto-created promo periods using <code>P1-26</code>, <code>P3-26</code> style naming</li>
+        <li>Configurable slot structure by category and subcategory</li>
+        <li>Eligible products only, mapped by supplier and taxonomy</li>
+        <li>No same product in consecutive promo periods</li>
+        <li>Supplier weighting and slot caps by category</li>
+        <li>Wizard-style submission flow</li>
+        <li>Real-time margin validation and warning states</li>
+        <li>Market benchmark pricing from price scraping tool</li>
+        <li>Buyer workflow with approval / decline reasons</li>
+        <li>Shopfront integration on approval</li>
+        <li>Release notifications, end-of-day summaries, countdown windows</li>
+      </ul>
+    </div>
+
+    <h2>Commercial logic</h2>
+    <div class="card">
+      <p>The system should encode buyer judgement into the workflow. It must balance three things at once:</p>
+      <ul>
+        <li>competitive retail pricing in market</li>
+        <li>Paramount minimum promotional margin rules</li>
+        <li>fair supplier access to promotional inventory</li>
+      </ul>
+      <p>That means real-time margin calculation, supplier-specific threshold rules, historical lockout rules, market benchmark visibility, and category-level slot weighting all need to be built into the product.</p>
+    </div>
+
+    <h2>MVP recommendation</h2>
+    <div class="card">
+      <ul>
+        <li>SSO portal entry</li>
+        <li>period and slot management</li>
+        <li>supplier dashboard and slot board</li>
+        <li>eligibility and consecutive-period rules</li>
+        <li>weighting-based slot allocation</li>
+        <li>wizard submission flow</li>
+        <li>margin validation and market price benchmarks</li>
+        <li>buyer approval / decline workflow</li>
+        <li>email notifications</li>
+        <li>Shopfront push on approval</li>
+      </ul>
+    </div>
+
+    <h2>Review note</h2>
+    <div class="card">
+      <p>The full detailed markdown brief sits alongside this page as <code>retail-promotions-management-brief.md</code>.</p>
+    </div>
+  </div>
+</body>
+</html>
