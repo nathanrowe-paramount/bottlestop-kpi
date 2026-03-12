@@ -3,136 +3,287 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Retail Promotions Management Tool PRD</title>
+  <title>Retail Promotions Management Tool — Detailed PRD</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; margin: 0; background: #f8fafc; color: #111827; }
-    .wrap { max-width: 1050px; margin: 0 auto; padding: 40px 20px 80px; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px; }
     h1, h2, h3 { color: #0f172a; }
-    h1 { font-size: 38px; margin-bottom: 10px; }
-    h2 { font-size: 24px; margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 24px; }
-    h3 { font-size: 18px; margin-top: 24px; }
-    p, li { font-size: 16px; line-height: 1.65; }
-    .card { background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px; margin: 18px 0; }
-    .meta { color: #64748b; }
+    h1 { font-size: 38px; margin-bottom: 8px; }
+    h2 { font-size: 26px; margin-top: 38px; border-top: 1px solid #e2e8f0; padding-top: 24px; }
+    h3 { font-size: 19px; margin-top: 22px; }
+    p, li { font-size: 16px; line-height: 1.7; }
+    .card { background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+    .meta { color: #64748b; margin-bottom: 20px; }
     .tag { display: inline-block; background: #dbeafe; color: #1d4ed8; padding: 6px 10px; border-radius: 999px; font-size: 12px; margin-right: 8px; }
     code { background: #f1f5f9; padding: 2px 6px; border-radius: 6px; }
-    ul { padding-left: 22px; }
+    ul, ol { padding-left: 22px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
-      <div class="tag">PRD</div><div class="tag">Dev Spec</div><div class="tag">Adobe App Builder</div>
-      <h1>Retail Promotions Management Tool, Product Requirements</h1>
-      <p class="meta">Dev-oriented build specification for Aidan, 12 March 2026</p>
-      <p>This document turns the earlier concept brief into an implementation-oriented product requirements doc covering roles, workflows, entities, business rules, integrations, MVP scope, and acceptance criteria.</p>
+      <div class="tag">Detailed PRD</div><div class="tag">Dev Spec</div><div class="tag">Adobe App Builder</div><div class="tag">API Mesh</div>
+      <h1>Retail Promotions Management Tool</h1>
+      <p class="meta">Detailed product requirements document built from Nathan’s voice notes, 12 March 2026</p>
+      <p>This document is the detailed build scope for Aidan. It captures the supplier workflow, buyer workflow, slot logic, weighting rules, pricing logic, margin engine, benchmark pricing integration, notification cadence, promo-period release logic, and downstream Shopfront execution requirements.</p>
     </div>
 
-    <h2>1. Product objective</h2>
-    <div class="card"><p>Build an integrated promotions management application inside the Paramount supplier portal that allows suppliers to submit promotion offers against structured retail promo slots, while enforcing commercial rules before buyer review and pushing approved promotions into Shopfront.</p></div>
+    <h2>Product objective</h2>
+    <div class="card">
+      <p>Build an integrated supplier promotions management application inside the Paramount supplier portal that allows suppliers to submit promotion offers against a structured retail promo board, while enforcing commercial rules before buyer review and pushing approved promotions into Shopfront.</p>
+      <p>The system should improve promo quality, reduce manual back and forth, protect margin, create fair slot allocation, and make promo planning more scalable and disciplined.</p>
+    </div>
 
-    <h2>2. Users and roles</h2>
+    <h2>Product philosophy</h2>
+    <div class="card">
+      <p>This is not just a form. It should behave like a guided commercial workflow engine. Before a buyer even touches a submission, the system should already be constraining suppliers to valid slots, valid products, valid pricing logic, valid slot allocation, and valid commercial thresholds.</p>
+    </div>
+
+    <h2>Users and roles</h2>
+    <div class="two-col">
+      <div class="card">
+        <h3>Supplier user</h3>
+        <ul>
+          <li>enters via existing supplier portal</li>
+          <li>requires retail-specific permission/status</li>
+          <li>views open and historical promo periods</li>
+          <li>views available slots and prior approved pricing</li>
+          <li>submits promotions and materials</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Buyer / Admin</h3>
+        <ul>
+          <li>buyers review, approve, or decline submissions</li>
+          <li>admins configure periods, slots, weighting, and margin rules</li>
+          <li>buyers receive daily digests</li>
+          <li>admins release promo periods in batches</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Platform and access model</h2>
     <div class="card">
       <ul>
-        <li><strong>Supplier user</strong>, can view periods, slots, eligible products, build and submit promotions.</li>
-        <li><strong>Buyer</strong>, can review, approve, decline, and manage category-level workflow.</li>
-        <li><strong>Admin</strong>, can configure periods, slot structures, supplier weighting, margin rules, permissions, and notifications.</li>
+        <li>Build in <strong>Adobe App Builder</strong></li>
+        <li>Use <strong>Adobe API Mesh</strong></li>
+        <li>Suppliers log in through the existing Paramount website</li>
+        <li>Only users with the right retail permission/status see the promotions entry point</li>
+        <li>Clicking into the app should use <strong>SSO / OAuth</strong> for seamless handoff</li>
       </ul>
     </div>
 
-    <h2>3. Core workflows</h2>
+    <h2>Promo period model</h2>
+    <div class="card">
+      <p>Promotions operate on a fortnightly cycle. Promo periods must auto-generate using the week number in which the promotion starts.</p>
+      <ul>
+        <li><code>P1-26</code></li>
+        <li><code>P3-26</code></li>
+        <li><code>P5-26</code></li>
+        <li><code>P7-26</code></li>
+      </ul>
+      <p>Periods must support open and close windows, release batches, statuses, and historical viewing.</p>
+    </div>
+
+    <h2>Category and slot structure</h2>
+    <div class="card">
+      <p>The app should use a visual promotional slotting board. Top-level categories include Spirits, RTD, Beer, Wine, Non-alcoholic, and Other. Each category supports configurable subcategories.</p>
+      <p>Examples include mainstream beer, international beer, craft beer, entry vodka, premium vodka, bourbon, scotch whisky, local gin, and international gin.</p>
+      <p>Each promo period needs configurable slot counts by category and subcategory.</p>
+    </div>
+
+    <h2>Supplier dashboard behaviour</h2>
+    <div class="card">
+      <ul>
+        <li>visual slot board, not just a list</li>
+        <li>toggle back to historical periods</li>
+        <li>see approved products and prices in filled slots</li>
+        <li>see supplier-specific slot availability</li>
+        <li>see unavailable / greyed-out slots where no valid product exists</li>
+      </ul>
+      <p>Historical price visibility is intentional. It creates commercial transparency and pushes suppliers to bring stronger offers next time.</p>
+    </div>
+
+    <h2>Product eligibility rules</h2>
+    <div class="card">
+      <ul>
+        <li>Only core range, tier one, and tier two products may be promoted</li>
+        <li>Products must map to valid category/subcategory combinations</li>
+        <li>Suppliers only see their own eligible products</li>
+        <li>A product cannot run in two consecutive promo periods</li>
+      </ul>
+    </div>
+
+    <h2>Supplier weighting and slot allocation</h2>
+    <div class="card">
+      <p>Each supplier should have category-level slot entitlements based on market share or agreed weighting. This prevents a major supplier from flooding the board.</p>
+      <p>Example: Lion has 30% share in mainstream beer. There are 6 slots. Lion gets 2 of 6 slots. The UI should show “You have filled 0 of 2 slots”.</p>
+      <p>If the supplier exceeds allocation, block the submission and tell them to speak to the buyer.</p>
+    </div>
+
+    <h2>Submission wizard</h2>
     <div class="card">
       <ol>
-        <li>Admin creates or releases periods and slot structure.</li>
-        <li>Suppliers are notified that one or more periods are open.</li>
-        <li>Supplier enters app via SSO from portal.</li>
-        <li>Supplier views slot board by category and sees remaining allocation.</li>
-        <li>Supplier selects slot, product, and pack format.</li>
-        <li>Supplier completes wizard, including scan deal and proposed promo price.</li>
-        <li>System validates eligibility, consecutive-period lockout, weighting cap, and margin threshold.</li>
-        <li>System shows market benchmark prices to shape submission quality.</li>
-        <li>Supplier submits promo and assets.</li>
-        <li>Buyer reviews in approval queue.</li>
-        <li>Buyer approves or declines with reason.</li>
-        <li>Approved promos push to Shopfront and lock the slot.</li>
-        <li>Suppliers receive outcome summaries.</li>
+        <li>Select category / slot</li>
+        <li>Select eligible product</li>
+        <li>Select one pack format only, case, 6-pack, or single</li>
+        <li>Review wholesale cost and supply discount</li>
+        <li>Enter scan deal</li>
+        <li>Enter proposed promotional retail price</li>
+        <li>Review margin and benchmark prices</li>
+        <li>Upload promotional assets</li>
+        <li>Submit</li>
       </ol>
     </div>
 
-    <h2>4. Key entities</h2>
+    <h2>Commercial pricing logic</h2>
+    <div class="card">
+      <p>The pricing screen should show:</p>
+      <ul>
+        <li>Paramount wholesale cost</li>
+        <li>supply discount</li>
+        <li>net retail buy price</li>
+        <li>scan deal input</li>
+        <li>proposed promo retail price</li>
+        <li>dollar margin</li>
+        <li>percentage margin</li>
+      </ul>
+      <p>Calculations must update in real time. If the promo sits below threshold, margin should show in red and submission should be blocked.</p>
+    </div>
+
+    <h2>Margin rule engine</h2>
+    <div class="card">
+      <p>Margin thresholds must be configurable by supplier, category, and pack format. Nathan explicitly wants the flexibility to accept different minimum margins for different suppliers.</p>
+      <p>Suggested precedence:</p>
+      <ol>
+        <li>supplier + category + pack override</li>
+        <li>supplier + category override</li>
+        <li>category + pack default</li>
+        <li>category default</li>
+      </ol>
+    </div>
+
+    <h2>Market benchmark pricing</h2>
+    <div class="card">
+      <p>Integrate the existing price scraping tool and show:</p>
+      <ul>
+        <li>lowest observed market price in the last 4 weeks</li>
+        <li>average / most common market price in the last 4 weeks</li>
+        <li>retailer name beside each</li>
+        <li>date recorded beside each</li>
+      </ul>
+      <p>This is a deliberate behavioural tool. Suppliers should see the real market context while entering their offer, so weak pricing becomes harder to justify.</p>
+    </div>
+
+    <h2>Buyer workflow</h2>
     <div class="card">
       <ul>
-        <li><strong>Supplier</strong></li>
-        <li><strong>Supplier user</strong></li>
-        <li><strong>Permission / role</strong></li>
-        <li><strong>Promo period</strong></li>
-        <li><strong>Promo slot</strong></li>
-        <li><strong>Category</strong></li>
-        <li><strong>Subcategory</strong></li>
-        <li><strong>Product / SKU</strong></li>
-        <li><strong>Pack format</strong></li>
-        <li><strong>Submission</strong></li>
-        <li><strong>Margin rule</strong></li>
-        <li><strong>Supplier weighting rule</strong></li>
-        <li><strong>Market benchmark snapshot</strong></li>
-        <li><strong>Approval decision</strong></li>
-        <li><strong>Notification event</strong></li>
+        <li>buyers receive daily summary emails of new submissions</li>
+        <li>buyers log into a queue filtered by category and period</li>
+        <li>buyers review pricing, margin, benchmark context, and assets</li>
+        <li>buyers approve or decline</li>
+        <li>decline requires a reason code and optional notes</li>
       </ul>
     </div>
 
-    <h2>5. Critical business rules</h2>
+    <h2>Shopfront integration</h2>
+    <div class="card">
+      <p>Approval should trigger the downstream Shopfront load. That push should include SKU, pack format, scan deal, promo price, and promo dates.</p>
+      <p>If the Shopfront push fails, the system should capture the failure, flag it internally, and allow retry.</p>
+    </div>
+
+    <h2>Notifications and release workflow</h2>
     <div class="card">
       <ul>
-        <li>Only core range / tier one / tier two products may be submitted.</li>
-        <li>Products must be mapped to valid category/subcategory combinations.</li>
-        <li>The same product cannot run in consecutive promo periods.</li>
-        <li>Suppliers cannot exceed category-level slot weighting allocation.</li>
-        <li>Only one pack format can be submitted per product per slot.</li>
-        <li>Submission must meet supplier/category/pack margin threshold.</li>
+        <li>notify suppliers when a new period or batch of periods opens</li>
+        <li>support release of multiple future promo periods in one batch</li>
+        <li>show countdown timer for supplier submission window</li>
+        <li>notify suppliers end of day with approved and declined outcomes</li>
+        <li>notify buyers daily with queue digest</li>
+      </ul>
+    </div>
+
+    <h2>Admin modules</h2>
+    <div class="card">
+      <ul>
+        <li>period management</li>
+        <li>slot builder</li>
+        <li>category and subcategory config</li>
+        <li>supplier eligibility config</li>
+        <li>product mapping config</li>
+        <li>margin rule config</li>
+        <li>supplier weighting config</li>
+        <li>reason code config</li>
+        <li>release management</li>
+        <li>notification templates</li>
+      </ul>
+    </div>
+
+    <h2>Data entities</h2>
+    <div class="card">
+      <p>Recommended entity set:</p>
+      <ul>
+        <li>suppliers</li>
+        <li>supplier_users</li>
+        <li>user_permissions</li>
+        <li>promo_periods</li>
+        <li>promo_release_batches</li>
+        <li>promo_slots</li>
+        <li>promo_categories</li>
+        <li>promo_subcategories</li>
+        <li>products</li>
+        <li>product_category_mappings</li>
+        <li>supplier_product_eligibility</li>
+        <li>supplier_slot_allocations</li>
+        <li>margin_rules</li>
+        <li>market_price_snapshots</li>
+        <li>promo_submissions</li>
+        <li>promo_submission_assets</li>
+        <li>approval_decisions</li>
+        <li>decline_reason_codes</li>
+        <li>integration_jobs</li>
+        <li>notification_events</li>
+        <li>audit_logs</li>
+      </ul>
+    </div>
+
+    <h2>MVP scope</h2>
+    <div class="card">
+      <ul>
+        <li>SSO entry from portal</li>
+        <li>supplier permission gating</li>
+        <li>period management and slot setup</li>
+        <li>eligibility and product mapping</li>
+        <li>supplier weighting logic</li>
+        <li>slot board UX</li>
+        <li>submission wizard</li>
+        <li>margin validation and benchmark pricing display</li>
+        <li>buyer queue and approval flow</li>
+        <li>decline reasons</li>
+        <li>Shopfront push on approval</li>
+        <li>notifications and countdown windows</li>
+      </ul>
+    </div>
+
+    <h2>Acceptance criteria, highlights</h2>
+    <div class="card">
+      <ul>
+        <li>Users without the required retail permission cannot access the app.</li>
+        <li>Users with permission can enter without separate login.</li>
+        <li>Suppliers only see eligible products and valid slots.</li>
+        <li>Same product cannot run in consecutive periods.</li>
+        <li>Supplier slot caps are enforced.</li>
+        <li>Below-threshold promos show red validation state and cannot submit.</li>
         <li>Buyer decline requires a reason code.</li>
-        <li>Buyer approval must trigger Shopfront integration.</li>
+        <li>Buyer approval triggers Shopfront integration.</li>
       </ul>
     </div>
 
-    <h2>6. Integrations</h2>
+    <h2>Final note for Aidan</h2>
     <div class="card">
-      <ul>
-        <li><strong>Portal auth / SSO</strong>, to get supplier identity and permission context.</li>
-        <li><strong>Product master / supplier mapping</strong>, to determine eligible SKUs.</li>
-        <li><strong>Price scraping tool</strong>, to surface market low and average prices.</li>
-        <li><strong>Shopfront POS</strong>, to load approved promotions with dates and pricing.</li>
-        <li><strong>Email</strong>, for release notifications, buyer digests, and outcome summaries.</li>
-      </ul>
-    </div>
-
-    <h2>7. MVP screens</h2>
-    <div class="card">
-      <ul>
-        <li>Supplier landing dashboard</li>
-        <li>Category slot board</li>
-        <li>Submission wizard</li>
-        <li>Buyer approval queue</li>
-        <li>Period / slot admin screen</li>
-        <li>Supplier weighting config screen</li>
-        <li>Margin rule config screen</li>
-      </ul>
-    </div>
-
-    <h2>8. Acceptance criteria highlights</h2>
-    <div class="card">
-      <ul>
-        <li>Given an eligible supplier user, when they enter via portal, then they land in the app without re-authenticating.</li>
-        <li>Given a slot with no eligible products for that supplier, when viewed, then it appears unavailable / greyed out.</li>
-        <li>Given a product promoted in the previous fortnight, when selected, then the system blocks submission.</li>
-        <li>Given a promo below threshold, when scan deal and price are entered, then the margin state shows red and submission is blocked.</li>
-        <li>Given supplier allocation is exhausted, when another slot is attempted, then the system blocks it with clear messaging.</li>
-        <li>Given buyer approval, when saved, then the promotion is sent to Shopfront and slot status updates to approved / filled.</li>
-      </ul>
-    </div>
-
-    <h2>9. MVP vs phase 2</h2>
-    <div class="card">
-      <p><strong>MVP</strong> should cover core submission, validation, approval, notification, and Shopfront push. <strong>Phase 2</strong> can add reporting, analytics, richer PDF briefing generation, and workflow optimisation.</p>
+      <p>The key thing here is preserving the commercial logic, not just the screens. If the app gets the slot allocation, product eligibility, margin validation, benchmark pricing, and approval workflow right, it will do a big chunk of the buyer’s job before the buyer ever opens the queue.</p>
     </div>
   </div>
 </body>
